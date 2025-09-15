@@ -4,16 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>William Clark • Session Stylist</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     
     body { 
-      font-family: 'Inter', sans-serif; 
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; 
       background: #0a0a0a; 
       color: #ffffff; 
-      line-height: 1.6;
+      line-height: 1.5;
       overflow-x: hidden;
+      font-weight: 400;
+      letter-spacing: -0.01em;
     }
     
     .container { 
@@ -43,11 +45,12 @@
     }
     
     .logo { 
-      font-weight: 700; 
-      font-size: 24px; 
+      font-weight: 600; 
+      font-size: 22px; 
       color: #ffffff;
       text-decoration: none;
-      letter-spacing: -0.5px;
+      letter-spacing: -0.02em;
+      font-family: 'Space Grotesk', sans-serif;
     }
     
     .hamburger { 
@@ -101,10 +104,11 @@
       padding: 20px 40px; 
       color: #ffffff; 
       text-decoration: none; 
-      font-weight: 500; 
-      font-size: 18px;
+      font-weight: 400; 
+      font-size: 16px;
       transition: all 0.3s ease;
       border-left: 3px solid transparent;
+      letter-spacing: -0.01em;
     }
     
     .nav-menu a:hover { 
@@ -253,19 +257,21 @@
     }
     
     .hero-content h1 {
-      font-size: clamp(3rem, 8vw, 6rem);
-      font-weight: 300;
-      margin-bottom: 20px;
-      letter-spacing: -2px;
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      font-weight: 400;
+      margin-bottom: 16px;
+      letter-spacing: -0.03em;
       text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      font-family: 'Space Grotesk', sans-serif;
     }
     
     .hero-content p {
-      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
       font-weight: 300;
-      opacity: 0.9;
-      margin-bottom: 40px;
+      opacity: 0.8;
+      margin-bottom: 32px;
       text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      letter-spacing: -0.01em;
     }
     
     .instagram-link {
@@ -303,17 +309,19 @@
     }
     
     h2 { 
-      font-size: clamp(2.5rem, 5vw, 4rem); 
-      margin-bottom: 30px; 
-      font-weight: 300;
-      letter-spacing: -1px;
+      font-size: clamp(2rem, 4vw, 3rem); 
+      margin-bottom: 24px; 
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      font-family: 'Space Grotesk', sans-serif;
     }
     
     p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      margin-bottom: 30px;
-      opacity: 0.9;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      opacity: 0.8;
+      letter-spacing: -0.01em;
     }
     
     /* Forms */
@@ -324,14 +332,16 @@
     }
     
     input, textarea { 
-      padding: 18px 24px; 
-      border-radius: 12px; 
-      border: 1px solid rgba(255, 255, 255, 0.2); 
-      background: rgba(255, 255, 255, 0.05); 
+      padding: 16px 20px; 
+      border-radius: 8px; 
+      border: 1px solid rgba(255, 255, 255, 0.15); 
+      background: rgba(255, 255, 255, 0.03); 
       color: #ffffff; 
-      font-size: 16px;
+      font-size: 14px;
       transition: all 0.3s ease;
       backdrop-filter: blur(10px);
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: -0.01em;
     }
     
     input:focus, textarea:focus {
@@ -346,17 +356,18 @@
     }
     
     button { 
-      padding: 18px 36px; 
+      padding: 14px 28px; 
       border: none; 
-      border-radius: 12px; 
+      border-radius: 6px; 
       background: linear-gradient(135deg, #f59e0b, #8b5cf6); 
       color: #fff; 
-      font-weight: 600; 
-      font-size: 16px;
+      font-weight: 500; 
+      font-size: 14px;
       cursor: pointer; 
       transition: all 0.3s ease;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
+      font-family: 'Space Grotesk', sans-serif;
     }
     
     button:hover { 
@@ -448,18 +459,18 @@
   <main>
     <div class="slideshow">
       <div class="slides">
-        <img src="https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?auto=format&fit=crop&w=1600&q=80" alt="Hair Styling Work 1">
-        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80" alt="Hair Styling Work 2">
-        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1600&q=80" alt="Hair Styling Work 3">
-        <img src="https://images.unsplash.com/photo-1590005354162-1d5a8f1e1432?auto=format&fit=crop&w=1600&q=80" alt="Hair Styling Work 4">
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1600&q=80" alt="Hair Styling Work 5">
-        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?auto=format&fit=crop&w=1600&q=80" alt="Hair Styling Work 6">
+        <img src="images/slideshow_images/hero-1.jpeg" alt="William Clark Hair Styling Work 1">
+        <img src="images/slideshow_images/hero-2.jpeg" alt="William Clark Hair Styling Work 2">
+        <img src="images/slideshow_images/hero-3.jpeg" alt="William Clark Hair Styling Work 3">
+        <img src="images/slideshow_images/hero-4.jpeg" alt="William Clark Hair Styling Work 4">
+        <img src="images/slideshow_images/hero-5.jpeg" alt="William Clark Hair Styling Work 5">
+        <img src="images/slideshow_images/hero-6.jpeg" alt="William Clark Hair Styling Work 6">
       </div>
       <div class="slideshow-overlay"></div>
       <div class="hero-content">
         <h1>William Clark</h1>
-        <p>Hair Stylist</p>
-        <a href="https://instagram.com/williamnewyork_" target="_blank" class="instagram-link">
+        <p>Session Stylist</p>
+        <a href="https://instagram.com/williamnewyork" target="_blank" class="instagram-link">
           <span>@williamnewyork</span>
         </a>
       </div>
@@ -467,28 +478,142 @@
 
     <section id="madonna" class="container">
       <h2>Madonna</h2>
-      <p>Exclusive work with the iconic Madonna, showcasing innovative hair styling for legendary performances and campaigns.</p>
+      <p>Exclusive work with the iconic Madonna.</p>
       <div class="gallery">
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?auto=format&fit=crop&w=400&q=80" alt="Madonna Work 1">
+          <img src="images/mad_images/mad-1.jpeg" alt="Madonna Work 1">
           <div class="gallery-overlay">
             <div class="gallery-title">Madonna Collection</div>
           </div>
         </div>
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=400&q=80" alt="Madonna Work 2">
+          <img src="images/mad_images/mad-2.jpeg" alt="Madonna Work 2">
           <div class="gallery-overlay">
             <div class="gallery-title">Madonna Collection</div>
           </div>
         </div>
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=400&q=80" alt="Madonna Work 3">
+          <img src="images/mad_images/mad-3.jpeg" alt="Madonna Work 3">
           <div class="gallery-overlay">
             <div class="gallery-title">Madonna Collection</div>
           </div>
         </div>
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1590005354162-1d5a8f1e1432?auto=format&fit=crop&w=400&q=80" alt="Madonna Work 4">
+          <img src="images/mad_images/mad-4.jpeg" alt="Madonna Work 4">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Madonna Collection</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/mad_images/mad-5.jpeg" alt="Madonna Work 5">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Madonna Collection</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/mad_images/mad-6.jpeg" alt="Madonna Work 6">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Madonna Collection</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/mad_images/mad-7.jpeg" alt="Madonna Work 7">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Madonna Collection</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/mad_images/mad-8.jpeg" alt="Madonna Work 8">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Madonna Collection</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/mad_images/mad-9.jpeg" alt="Madonna Work 9">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Madonna Collection</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/mad_images/mad-10.jpeg" alt="Madonna Work 10">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Madonna Collection</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/mad_images/mad-11.jpeg" alt="Madonna Work 11">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Madonna Collection</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/mad_images/mad-12.jpeg" alt="Madonna Work 12">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Madonna Collection</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/mad_images/mad-13.jpeg" alt="Madonna Work 13">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Madonna Collection</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/mad_images/mad-14.jpeg" alt="Madonna Work 14">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Madonna Collection</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/mad_images/mad-15.jpeg" alt="Madonna Work 15">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Madonna Collection</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/mad_images/mad-16.jpeg" alt="Madonna Work 16">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Madonna Collection</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/mad_images/mad-17.jpeg" alt="Madonna Work 17">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Madonna Collection</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/mad_images/mad-18.jpeg" alt="Madonna Work 18">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Madonna Collection</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/mad_images/mad-19.jpeg" alt="Madonna Work 19">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Madonna Collection</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/mad_images/mad-20.jpeg" alt="Madonna Work 20">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Madonna Collection</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/mad_images/mad-21.jpeg" alt="Madonna Work 21">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Madonna Collection</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/mad_images/mad-22.jpeg" alt="Madonna Work 22">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Madonna Collection</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/mad_images/mad-23.jpeg" alt="Madonna Work 23">
           <div class="gallery-overlay">
             <div class="gallery-title">Madonna Collection</div>
           </div>
@@ -498,28 +623,52 @@
 
     <section id="fashion" class="container">
       <h2>Fashion</h2>
-      <p>High-fashion editorial work featuring cutting-edge hair styling for top fashion publications and runway shows.</p>
+      <p>High-fashion editorial work featuring cutting-edge hair styling.</p>
       <div class="gallery">
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" alt="Fashion Work 1">
+          <img src="images/fashion_images/fashion-1.jpeg" alt="Fashion Work 1">
           <div class="gallery-overlay">
             <div class="gallery-title">Fashion Editorial</div>
           </div>
         </div>
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?auto=format&fit=crop&w=400&q=80" alt="Fashion Work 2">
+          <img src="images/fashion_images/fashion-2.jpeg" alt="Fashion Work 2">
           <div class="gallery-overlay">
             <div class="gallery-title">Fashion Editorial</div>
           </div>
         </div>
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?auto=format&fit=crop&w=400&q=80" alt="Fashion Work 3">
+          <img src="images/fashion_images/fashion-3.jpeg" alt="Fashion Work 3">
           <div class="gallery-overlay">
             <div class="gallery-title">Fashion Editorial</div>
           </div>
         </div>
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=400&q=80" alt="Fashion Work 4">
+          <img src="images/fashion_images/fashion-4.jpeg" alt="Fashion Work 4">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Fashion Editorial</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/fashion_images/fashion-5.jpeg" alt="Fashion Work 5">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Fashion Editorial</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/fashion_images/fashion-6.jpeg" alt="Fashion Work 6">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Fashion Editorial</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/fashion_images/fashion-7.jpeg" alt="Fashion Work 7">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Fashion Editorial</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/fashion_images/fashion-8.jpeg" alt="Fashion Work 8">
           <div class="gallery-overlay">
             <div class="gallery-title">Fashion Editorial</div>
           </div>
@@ -529,28 +678,70 @@
 
     <section id="campaigne" class="container">
       <h2>Campaigne</h2>
-      <p>Commercial campaign work for luxury brands and high-end advertising, creating memorable hair looks that define campaigns.</p>
+      <p>Creating commercial campaign looks fit for luxury brands and high-end advertising.</p>
       <div class="gallery">
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=400&q=80" alt="Campaign Work 1">
+          <img src="images/camp_images/camp-1.jpeg" alt="Campaign Work 1">
           <div class="gallery-overlay">
             <div class="gallery-title">Campaign Collection</div>
           </div>
         </div>
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1590005354162-1d5a8f1e1432?auto=format&fit=crop&w=400&q=80" alt="Campaign Work 2">
+          <img src="images/camp_images/camp-2.jpeg" alt="Campaign Work 2">
           <div class="gallery-overlay">
             <div class="gallery-title">Campaign Collection</div>
           </div>
         </div>
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" alt="Campaign Work 3">
+          <img src="images/camp_images/camp-3.jpeg" alt="Campaign Work 3">
           <div class="gallery-overlay">
             <div class="gallery-title">Campaign Collection</div>
           </div>
         </div>
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?auto=format&fit=crop&w=400&q=80" alt="Campaign Work 4">
+          <img src="images/camp_images/camp-4.jpeg" alt="Campaign Work 4">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Campaign Collection</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/camp_images/camp-5.jpeg" alt="Campaign Work 5">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Campaign Collection</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/camp_images/camp-6.jpeg" alt="Campaign Work 6">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Campaign Collection</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/camp_images/camp-7.jpeg" alt="Campaign Work 7">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Campaign Collection</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/camp_images/camp-8.jpeg" alt="Campaign Work 8">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Campaign Collection</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/camp_images/camp-9.jpeg" alt="Campaign Work 9">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Campaign Collection</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/camp_images/camp-10.jpeg" alt="Campaign Work 10">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Campaign Collection</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/camp_images/camp-11.jpeg" alt="Campaign Work 11">
           <div class="gallery-overlay">
             <div class="gallery-title">Campaign Collection</div>
           </div>
@@ -566,7 +757,7 @@
 
     <section id="contact" class="container">
       <h2>Contact</h2>
-      <p>Ready to collaborate? Get in touch to discuss your next project or book a session.</p>
+      <p>Message to discuss your next project...</p>
       <form action="https://formspree.io/f/your-id" method="POST">
         <input type="email" name="email" placeholder="Your email" required>
         <textarea name="message" placeholder="Tell me about your project..." required></textarea>
