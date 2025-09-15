@@ -332,12 +332,13 @@
       width: 100%; 
       height: 100vh; 
       overflow: hidden; 
+      padding-top: 80px;
     }
     
     .slides { 
       display: flex; 
       width: 600%; 
-      height: 100%; 
+      height: calc(100vh - 80px); 
       animation: slideShow 36s infinite; 
     }
     
@@ -385,7 +386,7 @@
 
     /* Sections */
     section { 
-      padding: 100px 0; 
+      padding: 120px 0 100px 0; 
       opacity: 0;
       transform: translateY(50px);
       transition: all 0.6s ease;
@@ -501,20 +502,33 @@
         right: 0;
       }
       
-      .hero-content h1 {
-        font-size: 3rem;
+      .slideshow {
+        padding-top: 70px;
       }
       
-      .hero-content p {
-        font-size: 1.2rem;
+      .slides {
+        height: calc(100vh - 70px);
       }
       
       section {
-        padding: 60px 0;
+        padding: 100px 0 60px 0;
       }
       
       .container {
         padding: 0 15px;
+      }
+      
+      .modal-nav {
+        padding: 15px;
+        font-size: 24px;
+      }
+      
+      .modal-prev {
+        left: 15px;
+      }
+      
+      .modal-next {
+        right: 15px;
       }
     }
   </style>
@@ -523,12 +537,12 @@
   <header>
     <div class="container">
       <nav>
-        <a href="https://instagram.com/williamnewyork_" target="_blank" class="instagram-icon">
+        <a href="https://instagram.com/williamnewyork" target="_blank" class="instagram-icon">
           <svg viewBox="0 0 24 24">
             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
           </svg>
         </a>
-        <a href="#" class="logo">William Clark<span class="subtitle">Hair Stylist</span></a>
+        <a href="#" class="logo">William Clark<span class="subtitle">Session Stylist</span></a>
         <div class="hamburger" id="hamburger">
           <span></span>
           <span></span>
@@ -848,7 +862,7 @@
 
   <footer class="container">
     <div class="social-links">
-      <a href="https://instagram.com/williamnewyork_" target="_blank">Instagram</a>
+      <a href="https://instagram.com/williamnewyork" target="_blank">Instagram</a>
       <a href="mailto:hello@williamnewyork.com">Email</a>
     </div>
     <p>© <span id="year"></span> William Clark. All rights reserved.</p>
@@ -912,6 +926,8 @@
           targetSection.style.display = 'block';
           setTimeout(() => {
             targetSection.classList.add('visible');
+            // Re-add image click listeners after section is shown
+            addImageClickListeners();
           }, 100);
         }
       });
@@ -991,9 +1007,24 @@
     }
     
     // Add click listeners to all gallery images
-    document.querySelectorAll('.gallery-item img').forEach(img => {
-      img.addEventListener('click', () => openModal(img));
-    });
+    function addImageClickListeners() {
+      document.querySelectorAll('.gallery-item img').forEach(img => {
+        img.addEventListener('click', () => openModal(img));
+      });
+    }
+    
+    // Initialize image click listeners
+    addImageClickListeners();
+    
+    // Re-add listeners when sections are shown (in case images are dynamically loaded)
+    const originalShowSection = window.showSection;
+    window.showSection = function(targetSection) {
+      if (originalShowSection) {
+        originalShowSection(targetSection);
+      }
+      // Re-add click listeners after section is shown
+      setTimeout(addImageClickListeners, 100);
+    };
     
     // Modal event listeners
     modalClose.addEventListener('click', closeModal);
