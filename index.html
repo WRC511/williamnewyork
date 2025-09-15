@@ -82,6 +82,7 @@
       border-left: 1px solid rgba(255, 255, 255, 0.1);
       transition: right 0.3s ease;
       z-index: 999;
+      overflow-y: auto;
     }
     
     .nav-menu.active { right: 0; }
@@ -112,6 +113,63 @@
       padding-left: 50px;
     }
     
+    /* Gallery Styles */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+    
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      aspect-ratio: 4/5;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    
+    .gallery-item:hover {
+      transform: scale(1.02);
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+    
+    .gallery-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(0,0,0,0.7), rgba(0,0,0,0.3));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+    
+    .gallery-title {
+      color: white;
+      font-weight: 600;
+      font-size: 18px;
+      text-align: center;
+    }
+    
     .nav-overlay {
       position: fixed;
       top: 0;
@@ -140,13 +198,13 @@
     
     .slides { 
       display: flex; 
-      width: 400%; 
+      width: 600%; 
       height: 100%; 
-      animation: slideShow 30s infinite; 
+      animation: slideShow 36s infinite; 
     }
     
     .slides img { 
-      width: 25%; 
+      width: 16.666%; 
       height: 100%; 
       object-fit: cover; 
       transition: transform 0.3s ease;
@@ -162,13 +220,15 @@
 
     @keyframes slideShow {
       0% { transform: translateX(0); }
-      20% { transform: translateX(0); }
-      25% { transform: translateX(-25%); }
-      45% { transform: translateX(-25%); }
-      50% { transform: translateX(-50%); }
-      70% { transform: translateX(-50%); }
-      75% { transform: translateX(-75%); }
-      95% { transform: translateX(-75%); }
+      15% { transform: translateX(0); }
+      20% { transform: translateX(-16.666%); }
+      35% { transform: translateX(-16.666%); }
+      40% { transform: translateX(-33.333%); }
+      55% { transform: translateX(-33.333%); }
+      60% { transform: translateX(-50%); }
+      75% { transform: translateX(-50%); }
+      80% { transform: translateX(-66.666%); }
+      95% { transform: translateX(-66.666%); }
       100% { transform: translateX(0); }
     }
     
@@ -376,9 +436,11 @@
     <div class="nav-overlay" id="navOverlay"></div>
     <div class="nav-menu" id="navMenu">
       <ul>
+        <li><a href="#madonna" class="nav-link">Madonna</a></li>
+        <li><a href="#fashion" class="nav-link">Fashion</a></li>
+        <li><a href="#campaigne" class="nav-link">Campaigne</a></li>
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
-        <li><a href="#iykyk" class="nav-link">IYKYK</a></li>
       </ul>
     </div>
   </header>
@@ -390,6 +452,8 @@
         <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80" alt="Hair Styling Work 2">
         <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1600&q=80" alt="Hair Styling Work 3">
         <img src="https://images.unsplash.com/photo-1590005354162-1d5a8f1e1432?auto=format&fit=crop&w=1600&q=80" alt="Hair Styling Work 4">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1600&q=80" alt="Hair Styling Work 5">
+        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?auto=format&fit=crop&w=1600&q=80" alt="Hair Styling Work 6">
       </div>
       <div class="slideshow-overlay"></div>
       <div class="hero-content">
@@ -400,6 +464,99 @@
         </a>
       </div>
     </div>
+
+    <section id="madonna" class="container">
+      <h2>Madonna</h2>
+      <p>Exclusive work with the iconic Madonna, showcasing innovative hair styling for legendary performances and campaigns.</p>
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?auto=format&fit=crop&w=400&q=80" alt="Madonna Work 1">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Madonna Collection</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=400&q=80" alt="Madonna Work 2">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Madonna Collection</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=400&q=80" alt="Madonna Work 3">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Madonna Collection</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1590005354162-1d5a8f1e1432?auto=format&fit=crop&w=400&q=80" alt="Madonna Work 4">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Madonna Collection</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="fashion" class="container">
+      <h2>Fashion</h2>
+      <p>High-fashion editorial work featuring cutting-edge hair styling for top fashion publications and runway shows.</p>
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" alt="Fashion Work 1">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Fashion Editorial</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?auto=format&fit=crop&w=400&q=80" alt="Fashion Work 2">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Fashion Editorial</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?auto=format&fit=crop&w=400&q=80" alt="Fashion Work 3">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Fashion Editorial</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=400&q=80" alt="Fashion Work 4">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Fashion Editorial</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="campaigne" class="container">
+      <h2>Campaigne</h2>
+      <p>Commercial campaign work for luxury brands and high-end advertising, creating memorable hair looks that define campaigns.</p>
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=400&q=80" alt="Campaign Work 1">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Campaign Collection</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1590005354162-1d5a8f1e1432?auto=format&fit=crop&w=400&q=80" alt="Campaign Work 2">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Campaign Collection</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" alt="Campaign Work 3">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Campaign Collection</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?auto=format&fit=crop&w=400&q=80" alt="Campaign Work 4">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Campaign Collection</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section id="about" class="container">
       <h2>About</h2>
@@ -414,18 +571,6 @@
         <input type="email" name="email" placeholder="Your email" required>
         <textarea name="message" placeholder="Tell me about your project..." required></textarea>
         <button type="submit">Send Message</button>
-      </form>
-    </section>
-
-    <section id="iykyk" class="container">
-      <h2>IYKYK</h2>
-      <p>This is a referral-only request form. If you know, you know.</p>
-      <form action="https://formspree.io/f/your-id" method="POST">
-        <input type="text" name="name" placeholder="Your full name" required>
-        <input type="text" name="number" placeholder="Phone number" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="text" name="referral" placeholder="Who referred you?" required>
-        <button type="submit">Submit Referral</button>
       </form>
     </section>
   </main>
