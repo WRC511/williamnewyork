@@ -47,29 +47,28 @@
     
     .logo { 
       font-weight: 600; 
-      font-size: 24px; 
+      font-size: 28px; 
       color: #ffffff;
       text-decoration: none;
       letter-spacing: -0.02em;
       font-family: 'Space Grotesk', sans-serif;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 50px;
-      padding: 12px 30px;
-      box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
       text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
       transition: all 0.3s ease;
+      text-align: center;
+      line-height: 1.2;
     }
     
     .logo:hover {
-      transform: translateY(-2px);
-      box-shadow: 
-        0 12px 40px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
       text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+    }
+    
+    .logo .subtitle {
+      display: block;
+      font-size: 14px;
+      font-weight: 300;
+      opacity: 0.8;
+      margin-top: 2px;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
     }
     
     .instagram-icon {
@@ -383,33 +382,6 @@
       z-index: 1;
     }
     
-    .hero-content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      z-index: 2;
-      color: #ffffff;
-    }
-    
-    .hero-content h1 {
-      font-size: clamp(2.5rem, 7vw, 5rem);
-      font-weight: 400;
-      margin-bottom: 16px;
-      letter-spacing: -0.03em;
-      text-shadow: 0 4px 20px rgba(0,0,0,0.5);
-      font-family: 'Space Grotesk', sans-serif;
-    }
-    
-    .hero-content p {
-      font-size: clamp(1rem, 2.5vw, 1.4rem);
-      font-weight: 300;
-      opacity: 0.8;
-      margin-bottom: 32px;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-      letter-spacing: -0.01em;
-    }
 
     /* Sections */
     section { 
@@ -556,8 +528,8 @@
           <span></span>
           <span></span>
         </div>
-        <a href="#" class="logo">William Clark</a>
-        <a href="https://instagram.com/williamnewyork_" target="_blank" class="instagram-icon">
+        <a href="#" class="logo">William Clark<span class="subtitle">Session Stylist</span></a>
+        <a href="https://instagram.com/williamnewyork" target="_blank" class="instagram-icon">
           <svg viewBox="0 0 24 24">
             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
           </svg>
@@ -588,15 +560,10 @@
         <img src="images/slideshow_images/hero-6.jpeg" alt="William Clark Hair Styling Work 6">
       </div>
       <div class="slideshow-overlay"></div>
-      <div class="hero-content">
-        <h1>Session Stylist</h1>
-        <p>Creating iconic looks for legendary moments</p>
-      </div>
     </div>
 
     <section id="madonna" class="container">
       <h2>Madonna</h2>
-      <p>Exclusive work with the iconic Madonna, showcasing innovative hair styling for legendary performances and campaigns.</p>
       <div class="gallery">
         <div class="gallery-item">
           <img src="images/mad_images/mad-1.jpeg" alt="Madonna Work 1">
@@ -741,7 +708,6 @@
 
     <section id="fashion" class="container">
       <h2>Fashion</h2>
-      <p>High-fashion editorial work featuring cutting-edge hair styling for top fashion publications and runway shows.</p>
       <div class="gallery">
         <div class="gallery-item">
           <img src="images/fashion_images/fashion-1.jpeg" alt="Fashion Work 1">
@@ -796,7 +762,6 @@
 
     <section id="campaigne" class="container">
       <h2>Campaigne</h2>
-      <p>Commercial campaign work for luxury brands and high-end advertising, creating memorable hair looks that define campaigns.</p>
       <div class="gallery">
         <div class="gallery-item">
           <img src="images/camp_images/camp-1.jpeg" alt="Campaign Work 1">
@@ -869,13 +834,10 @@
 
     <section id="about" class="container">
       <h2>About</h2>
-      <p>William Clark is a renowned session hairstylist based in New York, specializing in editorial and commercial work. With years of experience in the fashion industry, William has collaborated with top photographers, models, and brands to create stunning hair looks that define modern beauty standards.</p>
-      <p>His work has been featured in leading fashion publications and he's known for his innovative techniques and attention to detail. William's expertise spans from high-fashion editorial shoots to commercial campaigns, always bringing a fresh perspective to every project.</p>
     </section>
 
     <section id="contact" class="container">
       <h2>Contact</h2>
-      <p>Message to discuss your next project or book a session.</p>
       <form action="https://formspree.io/f/your-id" method="POST">
         <input type="email" name="email" placeholder="Your email" required>
         <textarea name="message" placeholder="Tell me about your project..." required></textarea>
