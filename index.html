@@ -3,105 +3,513 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Your Name • Session Stylist</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>William Clark • Session Stylist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    body { margin: 0; font-family: Inter, sans-serif; background: #0b0f14; color: #e5e7eb; }
-    header { position: sticky; top: 0; background: rgba(11,15,20,.85); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,.1); z-index: 100; }
-    .container { width: min(1200px, 92%); margin: 0 auto; }
-    nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; }
-    nav a, nav button { color: #e5e7eb; background: none; border: none; font-size: 16px; font-weight: 600; cursor: pointer; text-decoration: none; }
-    .dropdown { position: relative; }
-    .dropdown-content { display: none; position: absolute; background: #111827; border: 1px solid rgba(255,255,255,.1); border-radius: 8px; min-width: 180px; top: 100%; left: 0; z-index: 200; }
-    .dropdown-content a { display: block; padding: 10px 14px; color: #e5e7eb; text-decoration: none; }
-    .dropdown-content a:hover { background: rgba(255,255,255,.05); }
-    .dropdown:hover .dropdown-content { display: block; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body { 
+      font-family: 'Inter', sans-serif; 
+      background: #0a0a0a; 
+      color: #ffffff; 
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    .container { 
+      width: min(1200px, 95%); 
+      margin: 0 auto; 
+      padding: 0 20px;
+    }
+    
+    /* Header & Navigation */
+    header { 
+      position: fixed; 
+      top: 0; 
+      left: 0; 
+      right: 0; 
+      background: rgba(10, 10, 10, 0.95); 
+      backdrop-filter: blur(20px); 
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+    
+    nav { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      padding: 20px 0; 
+    }
+    
+    .logo { 
+      font-weight: 700; 
+      font-size: 24px; 
+      color: #ffffff;
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+    
+    .hamburger { 
+      display: flex; 
+      flex-direction: column; 
+      cursor: pointer; 
+      padding: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    .hamburger span { 
+      width: 25px; 
+      height: 2px; 
+      background: #ffffff; 
+      margin: 3px 0; 
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+    
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+    
+    .nav-menu { 
+      position: fixed; 
+      top: 80px; 
+      right: -100%; 
+      width: 300px; 
+      height: calc(100vh - 80px); 
+      background: rgba(10, 10, 10, 0.98); 
+      backdrop-filter: blur(20px);
+      border-left: 1px solid rgba(255, 255, 255, 0.1);
+      transition: right 0.3s ease;
+      z-index: 999;
+    }
+    
+    .nav-menu.active { right: 0; }
+    
+    .nav-menu ul { 
+      list-style: none; 
+      padding: 40px 0; 
+    }
+    
+    .nav-menu li { 
+      margin: 0; 
+    }
+    
+    .nav-menu a { 
+      display: block; 
+      padding: 20px 40px; 
+      color: #ffffff; 
+      text-decoration: none; 
+      font-weight: 500; 
+      font-size: 18px;
+      transition: all 0.3s ease;
+      border-left: 3px solid transparent;
+    }
+    
+    .nav-menu a:hover { 
+      background: rgba(255, 255, 255, 0.05); 
+      border-left-color: #ffffff;
+      padding-left: 50px;
+    }
+    
+    .nav-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 998;
+    }
+    
+    .nav-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
 
-    .slideshow { position: relative; width: 100%; height: 90vh; overflow: hidden; }
-    .slides { display: flex; width: 400%; height: 100%; animation: slideShow 24s infinite; }
-    .slides img { width: 100%; flex-shrink: 0; object-fit: cover; }
-    .slideshow:hover .slides { animation-play-state: paused; }
+    /* Hero Slideshow */
+    .slideshow { 
+      position: relative; 
+      width: 100%; 
+      height: 100vh; 
+      overflow: hidden; 
+    }
+    
+    .slides { 
+      display: flex; 
+      width: 400%; 
+      height: 100%; 
+      animation: slideShow 30s infinite; 
+    }
+    
+    .slides img { 
+      width: 25%; 
+      height: 100%; 
+      object-fit: cover; 
+      transition: transform 0.3s ease;
+    }
+    
+    .slideshow:hover .slides { 
+      animation-play-state: paused; 
+    }
+    
+    .slideshow:hover .slides img {
+      transform: scale(1.02);
+    }
 
     @keyframes slideShow {
       0% { transform: translateX(0); }
       20% { transform: translateX(0); }
-      25% { transform: translateX(-100%); }
-      45% { transform: translateX(-100%); }
-      50% { transform: translateX(-200%); }
-      70% { transform: translateX(-200%); }
-      75% { transform: translateX(-300%); }
-      95% { transform: translateX(-300%); }
+      25% { transform: translateX(-25%); }
+      45% { transform: translateX(-25%); }
+      50% { transform: translateX(-50%); }
+      70% { transform: translateX(-50%); }
+      75% { transform: translateX(-75%); }
+      95% { transform: translateX(-75%); }
       100% { transform: translateX(0); }
     }
+    
+    .slideshow-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(0,0,0,0.3), rgba(0,0,0,0.1));
+      z-index: 1;
+    }
+    
+    .hero-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 2;
+      color: #ffffff;
+    }
+    
+    .hero-content h1 {
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 300;
+      margin-bottom: 20px;
+      letter-spacing: -2px;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    
+    .hero-content p {
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      font-weight: 300;
+      opacity: 0.9;
+      margin-bottom: 40px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+    
+    .instagram-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 30px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50px;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+    
+    .instagram-link:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
 
-    section { padding: 80px 0; }
-    h2 { font-size: 32px; margin-bottom: 16px; }
-    form { display: grid; gap: 14px; max-width: 500px; }
-    input, textarea { padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,.2); background: rgba(255,255,255,.05); color: #e5e7eb; }
-    button { padding: 12px 18px; border: none; border-radius: 8px; background: linear-gradient(135deg, #f59e0b, #8b5cf6); color: #fff; font-weight: 700; cursor: pointer; }
-    button:hover { opacity: .9; }
+    /* Sections */
+    section { 
+      padding: 100px 0; 
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.6s ease;
+    }
+    
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    h2 { 
+      font-size: clamp(2.5rem, 5vw, 4rem); 
+      margin-bottom: 30px; 
+      font-weight: 300;
+      letter-spacing: -1px;
+    }
+    
+    p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+    
+    /* Forms */
+    form { 
+      display: grid; 
+      gap: 20px; 
+      max-width: 600px; 
+    }
+    
+    input, textarea { 
+      padding: 18px 24px; 
+      border-radius: 12px; 
+      border: 1px solid rgba(255, 255, 255, 0.2); 
+      background: rgba(255, 255, 255, 0.05); 
+      color: #ffffff; 
+      font-size: 16px;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+    
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    input::placeholder, textarea::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+    }
+    
+    button { 
+      padding: 18px 36px; 
+      border: none; 
+      border-radius: 12px; 
+      background: linear-gradient(135deg, #f59e0b, #8b5cf6); 
+      color: #fff; 
+      font-weight: 600; 
+      font-size: 16px;
+      cursor: pointer; 
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    button:hover { 
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(245, 158, 11, 0.4);
+    }
+    
+    /* Footer */
+    footer { 
+      padding: 60px 0; 
+      text-align: center; 
+      color: rgba(255, 255, 255, 0.6);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+    
+    .social-links a {
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-menu {
+        width: 100%;
+        right: -100%;
+      }
+      
+      .nav-menu.active {
+        right: 0;
+      }
+      
+      .hero-content h1 {
+        font-size: 3rem;
+      }
+      
+      .hero-content p {
+        font-size: 1.2rem;
+      }
+      
+      section {
+        padding: 60px 0;
+      }
+      
+      .container {
+        padding: 0 15px;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
       <nav>
-        <div style="font-weight:700; font-size:18px;">Your Name</div>
-        <div class="dropdown">
-          <button>Menu ▾</button>
-          <div class="dropdown-content">
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-            <a href="#iykyk">IYKYK</a>
-          </div>
+        <a href="#" class="logo">William Clark</a>
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
       </nav>
+    </div>
+    
+    <div class="nav-overlay" id="navOverlay"></div>
+    <div class="nav-menu" id="navMenu">
+      <ul>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="#iykyk" class="nav-link">IYKYK</a></li>
+      </ul>
     </div>
   </header>
 
   <main>
     <div class="slideshow">
       <div class="slides">
-        <img src="https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?auto=format&fit=crop&w=1600&q=80" alt="Work 1">
-        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80" alt="Work 2">
-        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1600&q=80" alt="Work 3">
-        <img src="https://images.unsplash.com/photo-1590005354162-1d5a8f1e1432?auto=format&fit=crop&w=1600&q=80" alt="Work 4">
+        <img src="https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?auto=format&fit=crop&w=1600&q=80" alt="Hair Styling Work 1">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80" alt="Hair Styling Work 2">
+        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1600&q=80" alt="Hair Styling Work 3">
+        <img src="https://images.unsplash.com/photo-1590005354162-1d5a8f1e1432?auto=format&fit=crop&w=1600&q=80" alt="Hair Styling Work 4">
+      </div>
+      <div class="slideshow-overlay"></div>
+      <div class="hero-content">
+        <h1>William Clark</h1>
+        <p>Session Stylist</p>
+        <a href="https://instagram.com/williamnewyork" target="_blank" class="instagram-link">
+          <span>@williamnewyork</span>
+        </a>
       </div>
     </div>
 
     <section id="about" class="container">
       <h2>About</h2>
-      <p>Write your biography here. Describe your background, session work, collaborations, and high-profile clients.</p>
+      <p>William Clark is a renowned session hairstylist based in New York, specializing in editorial and commercial work. With years of experience in the fashion industry, William has collaborated with top photographers, models, and brands to create stunning hair looks that define modern beauty standards.</p>
+      <p>His work has been featured in leading fashion publications and he's known for his innovative techniques and attention to detail. William's expertise spans from high-fashion editorial shoots to commercial campaigns, always bringing a fresh perspective to every project.</p>
     </section>
 
     <section id="contact" class="container">
       <h2>Contact</h2>
+      <p>Ready to collaborate? Get in touch to discuss your next project or book a session.</p>
       <form action="https://formspree.io/f/your-id" method="POST">
         <input type="email" name="email" placeholder="Your email" required>
-        <textarea name="message" placeholder="Your message" required></textarea>
-        <button type="submit">Send</button>
+        <textarea name="message" placeholder="Tell me about your project..." required></textarea>
+        <button type="submit">Send Message</button>
       </form>
     </section>
 
     <section id="iykyk" class="container">
       <h2>IYKYK</h2>
-      <p>This is a referral-only extensions request form.</p>
+      <p>This is a referral-only request form. If you know, you know.</p>
       <form action="https://formspree.io/f/your-id" method="POST">
         <input type="text" name="name" placeholder="Your full name" required>
         <input type="text" name="number" placeholder="Phone number" required>
         <input type="email" name="email" placeholder="Email" required>
         <input type="text" name="referral" placeholder="Who referred you?" required>
-        <button type="submit">Submit referral</button>
+        <button type="submit">Submit Referral</button>
       </form>
     </section>
   </main>
 
-  <footer class="container" style="padding:40px 0; text-align:center; color:#9ca3af;">
-    © <span id="year"></span> Your Name. All rights reserved.
+  <footer class="container">
+    <div class="social-links">
+      <a href="https://instagram.com/williamnewyork" target="_blank">Instagram</a>
+      <a href="mailto:hello@williamnewyork.com">Email</a>
+    </div>
+    <p>© <span id="year"></span> William Clark. All rights reserved.</p>
+    <p>www.williamnewyork.com</p>
   </footer>
 
   <script>
+    // Update year
     document.getElementById("year").textContent = new Date().getFullYear();
+    
+    // Mobile navigation
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+    const navOverlay = document.getElementById('navOverlay');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    function toggleNav() {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+      document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : 'auto';
+    }
+    
+    function closeNav() {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+      navOverlay.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+    
+    hamburger.addEventListener('click', toggleNav);
+    navOverlay.addEventListener('click', closeNav);
+    
+    // Close nav when clicking on nav links
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeNav();
+        
+        // Show the target section
+        const targetId = link.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
+        
+        if (targetSection) {
+          // Hide all sections first
+          document.querySelectorAll('section').forEach(section => {
+            section.style.display = 'none';
+            section.classList.remove('visible');
+          });
+          
+          // Show target section
+          targetSection.style.display = 'block';
+          setTimeout(() => {
+            targetSection.classList.add('visible');
+          }, 100);
+        }
+      });
+    });
+    
+    // Initially hide all sections except slideshow
+    document.querySelectorAll('section').forEach(section => {
+      section.style.display = 'none';
+    });
+    
+    // Smooth scrolling for any anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
   </script>
 </body>
 </html>
