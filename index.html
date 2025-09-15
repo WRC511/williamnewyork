@@ -141,8 +141,10 @@
     .gallery-item img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
+      object-position: center;
       transition: transform 0.3s ease;
+      background: #000;
     }
     
     .gallery-item:hover img {
@@ -172,6 +174,88 @@
       font-weight: 600;
       font-size: 18px;
       text-align: center;
+    }
+    
+    /* Image Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(10px);
+    }
+    
+    .modal.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .modal-content {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    }
+    
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #ffffff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 2001;
+      transition: opacity 0.3s ease;
+    }
+    
+    .modal-close:hover {
+      opacity: 0.7;
+    }
+    
+    .modal-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #ffffff;
+      font-size: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 2001;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+    
+    .modal-nav:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+    
+    .modal-prev {
+      left: 30px;
+    }
+    
+    .modal-next {
+      right: 30px;
+    }
+    
+    .modal-counter {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #ffffff;
+      font-size: 16px;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 10px 20px;
+      border-radius: 20px;
     }
     
     .nav-overlay {
@@ -210,8 +294,10 @@
     .slides img { 
       width: 16.666%; 
       height: 100%; 
-      object-fit: cover; 
+      object-fit: contain; 
+      object-position: center;
       transition: transform 0.3s ease;
+      background: #000;
     }
     
     .slideshow:hover .slides { 
@@ -678,7 +764,7 @@
 
     <section id="campaigne" class="container">
       <h2>Campaigne</h2>
-      <p>Creating commercial campaign looks fit for luxury brands and high-end advertising.</p>
+      <p>Creating ommercial campaign styles fit for luxury brands and high-end advertising.</p>
       <div class="gallery">
         <div class="gallery-item">
           <img src="images/camp_images/camp-1.jpeg" alt="Campaign Work 1">
@@ -757,7 +843,7 @@
 
     <section id="contact" class="container">
       <h2>Contact</h2>
-      <p>Message to discuss your next project...</p>
+      <p>Let's discuss your next project...</p>
       <form action="https://formspree.io/f/your-id" method="POST">
         <input type="email" name="email" placeholder="Your email" required>
         <textarea name="message" placeholder="Tell me about your project..." required></textarea>
@@ -774,6 +860,15 @@
     <p>© <span id="year"></span> William Clark. All rights reserved.</p>
     <p>www.williamnewyork.com</p>
   </footer>
+
+  <!-- Image Modal -->
+  <div id="imageModal" class="modal">
+    <span class="modal-close">&times;</span>
+    <span class="modal-nav modal-prev" id="modalPrev">&#10094;</span>
+    <span class="modal-nav modal-next" id="modalNext">&#10095;</span>
+    <img class="modal-content" id="modalImage" alt="Enlarged Image">
+    <div class="modal-counter" id="modalCounter"></div>
+  </div>
 
   <script>
     // Update year
@@ -845,6 +940,90 @@
           });
         }
       });
+    });
+    
+    // Image Modal functionality
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalClose = document.querySelector('.modal-close');
+    const modalPrev = document.getElementById('modalPrev');
+    const modalNext = document.getElementById('modalNext');
+    const modalCounter = document.getElementById('modalCounter');
+    
+    let currentImageIndex = 0;
+    let currentImages = [];
+    
+    // Get all gallery images
+    function getAllGalleryImages() {
+      return Array.from(document.querySelectorAll('.gallery-item img'));
+    }
+    
+    // Open modal with clicked image
+    function openModal(clickedImage) {
+      currentImages = getAllGalleryImages();
+      currentImageIndex = currentImages.indexOf(clickedImage);
+      
+      if (currentImageIndex === -1) return;
+      
+      modalImage.src = clickedImage.src;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      updateModalCounter();
+    }
+    
+    // Close modal
+    function closeModal() {
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+    
+    // Show next image
+    function showNextImage() {
+      currentImageIndex = (currentImageIndex + 1) % currentImages.length;
+      modalImage.src = currentImages[currentImageIndex].src;
+      updateModalCounter();
+    }
+    
+    // Show previous image
+    function showPrevImage() {
+      currentImageIndex = (currentImageIndex - 1 + currentImages.length) % currentImages.length;
+      modalImage.src = currentImages[currentImageIndex].src;
+      updateModalCounter();
+    }
+    
+    // Update counter
+    function updateModalCounter() {
+      modalCounter.textContent = `${currentImageIndex + 1} / ${currentImages.length}`;
+    }
+    
+    // Add click listeners to all gallery images
+    document.querySelectorAll('.gallery-item img').forEach(img => {
+      img.addEventListener('click', () => openModal(img));
+    });
+    
+    // Modal event listeners
+    modalClose.addEventListener('click', closeModal);
+    modalPrev.addEventListener('click', showPrevImage);
+    modalNext.addEventListener('click', showNextImage);
+    
+    // Close modal when clicking outside the image
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (modal.classList.contains('active')) {
+        if (e.key === 'Escape') {
+          closeModal();
+        } else if (e.key === 'ArrowLeft') {
+          showPrevImage();
+        } else if (e.key === 'ArrowRight') {
+          showNextImage();
+        }
+      }
     });
   </script>
 </body>
