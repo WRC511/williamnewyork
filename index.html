@@ -21,6 +21,12 @@
             background: #000000;
             letter-spacing: 0.5px;
             font-weight: 400;
+            transition: all 0.3s ease;
+        }
+        
+        body.light-theme {
+            color: #000000;
+            background: #ffffff;
         }
         
         .container { 
@@ -43,6 +49,11 @@
             transition: all 0.3s ease;
         }
         
+        body.light-theme header {
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
         nav { 
             display: flex; 
             justify-content: center; 
@@ -58,22 +69,41 @@
             text-decoration: none;
             text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
             transition: all 0.3s ease;
+            text-align: center;
         }
         
         .logo:hover {
             text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
         }
         
-        .logo .subtitle {
+        body.light-theme .logo {
+            color: #000000;
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        body.light-theme .logo:hover {
+            text-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .logo-w {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1;
+            display: block;
+        }
+        
+        .logo-text {
             font-size: 14px;
             font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 5px;
             display: block;
-            margin-top: 2px;
         }
         
         .instagram-icon {
             position: absolute;
-            left: 0;
+            left: 20px;
             width: 24px;
             height: 24px;
             border: 1px solid #ffffff;
@@ -96,9 +126,17 @@
             fill: #ffffff;
         }
         
+        body.light-theme .instagram-icon {
+            border: 1px solid #000000;
+        }
+        
+        body.light-theme .instagram-icon svg {
+            fill: #000000;
+        }
+        
         .hamburger {
             position: absolute;
-            right: 0;
+            right: 20px;
             width: 30px;
             height: 30px;
             display: flex;
@@ -113,6 +151,10 @@
             height: 2px;
             background: #ffffff;
             transition: all 0.3s ease;
+        }
+        
+        body.light-theme .hamburger span {
+            background: #000000;
         }
         
         .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
@@ -131,6 +173,11 @@
             transition: right 0.3s ease;
             z-index: 999;
             overflow-y: auto;
+        }
+        
+        body.light-theme .nav-menu {
+            background: rgba(0, 0, 0, 0.98);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .nav-menu.active { right: 0; }
@@ -160,6 +207,15 @@
         .nav-menu a:hover { 
             background: rgba(0, 0, 0, 0.05); 
             border-left-color: #000000;
+        }
+        
+        body.light-theme .nav-menu a {
+            color: #ffffff;
+        }
+        
+        body.light-theme .nav-menu a:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-left-color: #ffffff;
         }
         
         .nav-overlay {
@@ -193,7 +249,7 @@
             display: flex; 
             width: 600%; 
             height: 100%; 
-            animation: slideShow 36s infinite; 
+            animation: slideShow 40s infinite; 
         }
         
         .slides img { 
@@ -205,12 +261,19 @@
         
         @keyframes slideShow {
             0% { transform: translateX(0); }
-            16.66% { transform: translateX(0); }
-            33.33% { transform: translateX(-16.666%); }
-            50% { transform: translateX(-33.333%); }
-            66.66% { transform: translateX(-50%); }
-            83.33% { transform: translateX(-66.666%); }
-            100% { transform: translateX(-66.666%); }
+            8% { transform: translateX(0); }
+            12% { transform: translateX(-16.666%); }
+            20% { transform: translateX(-16.666%); }
+            24% { transform: translateX(-33.333%); }
+            32% { transform: translateX(-33.333%); }
+            36% { transform: translateX(-50%); }
+            44% { transform: translateX(-50%); }
+            48% { transform: translateX(-66.666%); }
+            56% { transform: translateX(-66.666%); }
+            60% { transform: translateX(-83.333%); }
+            68% { transform: translateX(-83.333%); }
+            72% { transform: translateX(-100%); }
+            100% { transform: translateX(-100%); }
         }
         
         .slideshow-overlay {
@@ -351,20 +414,24 @@
             const navMenu = document.getElementById('navMenu');
             const navOverlay = document.getElementById('navOverlay');
             const hamburger = document.querySelector('.hamburger');
+            const body = document.body;
             
             navMenu.classList.toggle('active');
             navOverlay.classList.toggle('active');
             hamburger.classList.toggle('active');
+            body.classList.toggle('light-theme');
         }
         
         function closeNav() {
             const navMenu = document.getElementById('navMenu');
             const navOverlay = document.getElementById('navOverlay');
             const hamburger = document.querySelector('.hamburger');
+            const body = document.body;
             
             navMenu.classList.remove('active');
             navOverlay.classList.remove('active');
             hamburger.classList.remove('active');
+            body.classList.remove('light-theme');
         }
         
         // Update copyright year
