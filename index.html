@@ -3,19 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>William Clark • Hair Stylist</title>
+  <title>William Clark • Session Stylist</title>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     
     body { 
       font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; 
-      background: #0a0a0a; 
+      background: #000000; 
       color: #ffffff; 
       line-height: 1.5;
       overflow-x: hidden;
       font-weight: 400;
       letter-spacing: -0.01em;
+      transition: all 0.3s ease;
+    }
+    
+    body.light-theme {
+      background: #ffffff;
+      color: #000000;
     }
     
     .container { 
@@ -30,11 +36,16 @@
       top: 0; 
       left: 0; 
       right: 0; 
-      background: rgba(10, 10, 10, 0.95); 
+      background: rgba(0, 0, 0, 0.95); 
       backdrop-filter: blur(20px); 
       border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
       z-index: 1000;
       transition: all 0.3s ease;
+    }
+    
+    body.light-theme header {
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     }
     
     nav { 
@@ -78,25 +89,33 @@
       transform: translateY(-50%);
       width: 40px;
       height: 40px;
-      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-      border-radius: 12px;
+      background: transparent;
+      border: 1px solid #ffffff;
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(240, 148, 51, 0.3);
     }
     
     .instagram-icon:hover {
-      transform: translateY(-50%) scale(1.1);
-      box-shadow: 0 6px 20px rgba(240, 148, 51, 0.5);
+      transform: translateY(-50%) scale(1.05);
+      background: rgba(255, 255, 255, 0.1);
     }
     
     .instagram-icon svg {
       width: 20px;
       height: 20px;
-      fill: white;
+      fill: #ffffff;
+    }
+    
+    body.light-theme .instagram-icon {
+      border-color: #000000;
+    }
+    
+    body.light-theme .instagram-icon svg {
+      fill: #000000;
     }
     
     .hamburger { 
@@ -120,6 +139,10 @@
       border-radius: 2px;
     }
     
+    body.light-theme .hamburger span {
+      background: #000000;
+    }
+    
     .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
     .hamburger.active span:nth-child(2) { opacity: 0; }
     .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
@@ -130,9 +153,9 @@
       right: -100%; 
       width: 300px; 
       height: calc(100vh - 80px); 
-      background: rgba(10, 10, 10, 0.98); 
+      background: rgba(255, 255, 255, 0.98); 
       backdrop-filter: blur(20px);
-      border-left: 1px solid rgba(255, 255, 255, 0.1);
+      border-left: 1px solid rgba(0, 0, 0, 0.1);
       transition: right 0.3s ease;
       z-index: 999;
       overflow-y: auto;
@@ -152,7 +175,7 @@
     .nav-menu a { 
       display: block; 
       padding: 20px 40px; 
-      color: #ffffff; 
+      color: #000000; 
       text-decoration: none; 
       font-weight: 400; 
       font-size: 16px;
@@ -162,8 +185,8 @@
     }
     
     .nav-menu a:hover { 
-      background: rgba(255, 255, 255, 0.05); 
-      border-left-color: #ffffff;
+      background: rgba(0, 0, 0, 0.05); 
+      border-left-color: #000000;
       padding-left: 50px;
     }
     
@@ -178,10 +201,11 @@
     .gallery-item {
       position: relative;
       overflow: hidden;
-      border-radius: 12px;
+      border-radius: 0;
       aspect-ratio: 4/5;
       cursor: pointer;
       transition: transform 0.3s ease;
+      background: #f8f8f8;
     }
     
     .gallery-item:hover {
@@ -191,14 +215,14 @@
     .gallery-item img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
       object-position: center;
       transition: transform 0.3s ease;
-      background: #000;
+      background: #f8f8f8;
     }
     
     .gallery-item:hover img {
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
     
     .gallery-overlay {
@@ -207,7 +231,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(45deg, rgba(0,0,0,0.7), rgba(0,0,0,0.3));
+      background: linear-gradient(45deg, rgba(0,0,0,0.8), rgba(0,0,0,0.4));
       opacity: 0;
       transition: opacity 0.3s ease;
       display: flex;
@@ -221,9 +245,11 @@
     
     .gallery-title {
       color: white;
-      font-weight: 600;
-      font-size: 18px;
+      font-weight: 500;
+      font-size: 14px;
       text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
     
     /* Image Modal */
@@ -321,6 +347,10 @@
       z-index: 998;
     }
     
+    body.light-theme .nav-overlay {
+      background: rgba(255, 255, 255, 0.5);
+    }
+    
     .nav-overlay.active {
       opacity: 1;
       visibility: visible;
@@ -390,6 +420,8 @@
       opacity: 0;
       transform: translateY(50px);
       transition: all 0.6s ease;
+      background: #ffffff;
+      color: #000000;
     }
     
     section.visible {
@@ -422,34 +454,33 @@
     
     input, textarea { 
       padding: 16px 20px; 
-      border-radius: 8px; 
-      border: 1px solid rgba(255, 255, 255, 0.15); 
-      background: rgba(255, 255, 255, 0.03); 
-      color: #ffffff; 
+      border-radius: 0; 
+      border: 1px solid #e0e0e0; 
+      background: #ffffff; 
+      color: #000000; 
       font-size: 14px;
       transition: all 0.3s ease;
-      backdrop-filter: blur(10px);
       font-family: 'Space Grotesk', sans-serif;
       letter-spacing: -0.01em;
     }
     
     input:focus, textarea:focus {
       outline: none;
-      border-color: rgba(255, 255, 255, 0.5);
-      background: rgba(255, 255, 255, 0.1);
+      border-color: #000000;
+      background: #ffffff;
       transform: translateY(-2px);
     }
     
     input::placeholder, textarea::placeholder {
-      color: rgba(255, 255, 255, 0.6);
+      color: #999999;
     }
     
     button { 
       padding: 14px 28px; 
-      border: none; 
-      border-radius: 6px; 
-      background: linear-gradient(135deg, #f59e0b, #8b5cf6); 
-      color: #fff; 
+      border: 1px solid #000000; 
+      border-radius: 0; 
+      background: #000000; 
+      color: #ffffff; 
       font-weight: 500; 
       font-size: 14px;
       cursor: pointer; 
@@ -460,8 +491,9 @@
     }
     
     button:hover { 
-      transform: translateY(-3px);
-      box-shadow: 0 15px 35px rgba(245, 158, 11, 0.4);
+      transform: translateY(-2px);
+      background: #ffffff;
+      color: #000000;
     }
     
     /* Footer */
@@ -542,7 +574,7 @@
             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
           </svg>
         </a>
-        <a href="#" class="logo">William Clark<span class="subtitle">Hair Stylist</span></a>
+        <a href="#" class="logo">William Clark<span class="subtitle">Session Stylist</span></a>
         <div class="hamburger" id="hamburger">
           <span></span>
           <span></span>
@@ -556,7 +588,7 @@
       <ul>
         <li><a href="#madonna" class="nav-link">Madonna</a></li>
         <li><a href="#fashion" class="nav-link">Fashion</a></li>
-        <li><a href="#campaigne" class="nav-link">Campaign</a></li>
+        <li><a href="#campaign" class="nav-link">Campaign</a></li>
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
@@ -774,7 +806,7 @@
       </div>
     </section>
 
-    <section id="campaigne" class="container">
+    <section id="campaign" class="container">
       <h2>Campaign</h2>
       <div class="gallery">
         <div class="gallery-item">
@@ -848,7 +880,7 @@
 
     <section id="about" class="container">
       <h2>About</h2>
-      <p>With over a decade of experience that includes high-profile fashion shoots to world tours and videos, I specialize in creating iconic hair looks that define campaigns and capture the essence of legendary moments.</p>
+      <p>With over a decade of experience in the fashion industry, I specialize in creating iconic hair looks that define campaigns and capture the essence of legendary moments.</p>
     </section>
 
     <section id="contact" class="container">
@@ -894,6 +926,13 @@
       navMenu.classList.toggle('active');
       navOverlay.classList.toggle('active');
       document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : 'auto';
+      
+      // Toggle theme when menu is opened/closed
+      if (navMenu.classList.contains('active')) {
+        document.body.classList.add('light-theme');
+      } else {
+        document.body.classList.remove('light-theme');
+      }
     }
     
     function closeNav() {
@@ -901,6 +940,7 @@
       navMenu.classList.remove('active');
       navOverlay.classList.remove('active');
       document.body.style.overflow = 'auto';
+      document.body.classList.remove('light-theme');
     }
     
     hamburger.addEventListener('click', toggleNav);
