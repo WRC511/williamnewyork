@@ -385,7 +385,7 @@
                 <div class="logo-text">WILLIAM NEW YORK</div>
             </a>
             
-            <div class="hamburger" onclick="toggleNav()">
+            <div class="hamburger">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -483,6 +483,17 @@
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeNav();
+            }
+        });
+        
+        // Add click event listener to hamburger
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            if (hamburger) {
+                hamburger.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    toggleNav();
+                });
             }
         });
     </script>
