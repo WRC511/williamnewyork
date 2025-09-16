@@ -418,24 +418,16 @@
             const hamburger = document.querySelector('.hamburger');
             const body = document.body;
             
-            const isActive = navMenu.classList.contains('active');
-            console.log('Current state - isActive:', isActive);
+            console.log('toggleNav called');
             
-            if (isActive) {
-                console.log('Closing menu - removing light-theme');
-                navMenu.classList.remove('active');
-                navOverlay.classList.remove('active');
-                hamburger.classList.remove('active');
-                body.classList.remove('light-theme');
-            } else {
-                console.log('Opening menu - adding light-theme');
-                navMenu.classList.add('active');
-                navOverlay.classList.add('active');
-                hamburger.classList.add('active');
-                body.classList.add('light-theme');
-            }
+            // Toggle menu visibility
+            navMenu.classList.toggle('active');
+            navOverlay.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            body.classList.toggle('light-theme');
             
-            console.log('Body classes after toggle:', body.className);
+            console.log('Menu active:', navMenu.classList.contains('active'));
+            console.log('Body classes:', body.className);
         }
         
         function closeNav() {
@@ -460,24 +452,9 @@
             }
         });
         
-        // Add click event listener to hamburger
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburger = document.querySelector('.hamburger');
-            if (hamburger) {
-                hamburger.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    console.log('Hamburger clicked - toggling theme');
-                    toggleNav();
-                });
-            } else {
-                console.log('Hamburger element not found!');
-            }
-        });
-        
-        // Also add a direct onclick as backup
+        // Simple hamburger click function
         function hamburgerClick() {
-            console.log('Direct hamburger click');
+            console.log('Hamburger clicked');
             toggleNav();
         }
     </script>
