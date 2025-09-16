@@ -419,6 +419,7 @@
             const body = document.body;
             
             console.log('toggleNav called');
+            console.log('Before - Body classes:', body.className);
             
             // Toggle menu visibility
             navMenu.classList.toggle('active');
@@ -426,8 +427,9 @@
             hamburger.classList.toggle('active');
             body.classList.toggle('light-theme');
             
-            console.log('Menu active:', navMenu.classList.contains('active'));
-            console.log('Body classes:', body.className);
+            console.log('After - Menu active:', navMenu.classList.contains('active'));
+            console.log('After - Body classes:', body.className);
+            console.log('Has light-theme class:', body.classList.contains('light-theme'));
         }
         
         function closeNav() {
