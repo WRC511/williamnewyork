@@ -94,12 +94,12 @@
         }
         
         .gallery {
-            max-width: 1200px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 0 30px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            gap: 20px;
         }
         
         .image-item {
@@ -108,7 +108,8 @@
         
         .image-item img {
             width: 100%;
-            height: auto;
+            height: 300px;
+            object-fit: cover;
             display: block;
             cursor: pointer;
             transition: opacity 0.3s ease;
@@ -203,7 +204,7 @@
             .gallery {
                 padding: 0 20px;
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 25px;
             }
             
             .modal-close {
