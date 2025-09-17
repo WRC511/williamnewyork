@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
+  <style>
         * { 
             margin: 0; 
             padding: 0; 
@@ -87,10 +87,38 @@
             font-weight: 400;
         }
         
+        /* Vertical Billboard */
+        .vertical-billboard {
+            position: fixed;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: #000000;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        
+        .billboard-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            letter-spacing: 8px;
+            animation: billboardScroll 15s linear infinite;
+        }
+        
+        @keyframes billboardScroll {
+            0% { transform: translateY(100vh); }
+            100% { transform: translateY(-100%); }
+        }
+
         /* Main Content */
         main {
             margin-top: 80px;
             padding: 40px 0;
+            margin-left: 80px;
         }
         
         .gallery {
@@ -212,6 +240,10 @@
         
         /* Mobile */
         @media (max-width: 768px) {
+            .vertical-billboard {
+                display: none;
+            }
+            
             header {
                 padding: 15px 20px;
             }
@@ -231,6 +263,7 @@
             main {
                 margin-top: 70px;
                 padding: 20px 0;
+                margin-left: 0;
             }
             
             .gallery {
@@ -249,11 +282,11 @@
                 font-size: 24px;
             }
         }
-    </style>
+  </style>
 </head>
 <body>
-    <header>
-        <nav>
+  <header>
+      <nav>
             <a href="index.html" class="logo">
                 <div class="logo-w">W</div>
                 <div class="logo-text">WILLIAM NEW YORK</div>
@@ -262,8 +295,13 @@
                 <li><a href="index.html" class="active">portfolio</a></li>
                 <li><a href="contact.html">contact</a></li>
             </ul>
-        </nav>
+      </nav>
     </header>
+
+    <!-- Vertical Billboard -->
+    <div class="vertical-billboard">
+        <div class="billboard-text">WILLIAM • NEW • YORK</div>
+    </div>
 
     <main>
         <div class="gallery">
@@ -468,14 +506,14 @@
         <span class="modal-close" onclick="closeModal()">&times;</span>
         <div class="modal-content">
             <img id="modalImage" src="" alt="">
-        </div>
+      </div>
     </div>
 
     <footer>
         <p>&copy; <span id="currentYear"></span>. All images © William Clark</p>
-    </footer>
+  </footer>
 
-    <script>
+  <script>
         function openModal(imageSrc) {
             const modal = document.getElementById('imageModal');
             const modalImg = document.getElementById('modalImage');
@@ -497,6 +535,12 @@
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeModal();
+            }
+        });
+  </script>
+</body>
+</html>
+
             }
         });
     </script>
