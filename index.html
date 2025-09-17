@@ -94,12 +94,36 @@
         }
         
         .gallery {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 30px;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
             gap: 20px;
+            position: relative;
+        }
+        
+        .gallery::before,
+        .gallery::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 40px;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .gallery::before {
+            left: -10px;
+            background: linear-gradient(90deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.05) 50%, transparent 100%);
+            box-shadow: -20px 0 40px rgba(0,0,0,0.1);
+        }
+        
+        .gallery::after {
+            right: -10px;
+            background: linear-gradient(270deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.05) 50%, transparent 100%);
+            box-shadow: 20px 0 40px rgba(0,0,0,0.1);
         }
         
         .image-item {
@@ -178,6 +202,14 @@
             font-weight: 300;
         }
         
+        /* Tablet */
+        @media (max-width: 1024px) {
+            .gallery {
+                grid-template-columns: 1fr 1fr;
+                max-width: 800px;
+            }
+        }
+        
         /* Mobile */
         @media (max-width: 768px) {
             header {
@@ -204,7 +236,11 @@
             .gallery {
                 padding: 0 20px;
                 grid-template-columns: 1fr;
-                gap: 25px;
+                gap: 20px;
+            }
+            
+            .image-item img {
+                height: 250px;
             }
             
             .modal-close {
@@ -556,7 +592,18 @@
                 <img src="images/fashion_images/fashion-27.jpeg" alt="Fashion 27" onerror="this.parentElement.style.display='none'">
                 <div class="image-caption">Fashion</div>
             </div>
-          
+            <div class="image-item" onclick="openModal('images/fashion_images/fashion-28.jpeg')">
+                <img src="images/fashion_images/fashion-28.jpeg" alt="Fashion 28" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Fashion</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/fashion_images/fashion-29.jpeg')">
+                <img src="images/fashion_images/fashion-29.jpeg" alt="Fashion 29" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Fashion</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/fashion_images/fashion-30.jpeg')">
+                <img src="images/fashion_images/fashion-30.jpeg" alt="Fashion 30" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Fashion</div>
+            </div>
         </div>
     </main>
 
