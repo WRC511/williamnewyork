@@ -6,7 +6,7 @@
     <title>William Clark • Session Stylist</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * { 
             margin: 0; 
@@ -15,74 +15,38 @@
         }
         
         body { 
-            font-family: 'Space Grotesk', sans-serif; 
-            line-height: 1.6; 
-            color: #ffffff; 
-            background: #000000;
-            letter-spacing: 0.5px;
-            font-weight: 400;
-            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif; 
+            line-height: 1.4; 
+            color: #000000; 
+            background: #ffffff;
+            font-weight: 300;
         }
         
-        body.light-theme {
-            color: #000000 !important;
-            background: #ffffff !important;
-        }
-        
-        .container { 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            padding: 0 20px;
-        }
-        
-        /* Header & Navigation */
-        header { 
-            position: fixed; 
-            top: 0; 
-            left: 0; 
-            right: 0; 
-            height: 80px;
-            background: rgba(0, 0, 0, 0.95); 
-            backdrop-filter: blur(20px); 
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #ffffff;
             z-index: 1000;
-            transition: all 0.3s ease;
+            padding: 20px 30px;
+            border-bottom: 1px solid #e0e0e0;
         }
         
-        body.light-theme header {
-            background: rgba(255, 255, 255, 0.95) !important;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
-        nav { 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            height: 80px;
-            position: relative;
-        }
-        
-        .logo { 
-            font-weight: 600; 
-            font-size: 28px; 
-            color: #ffffff;
+        .logo {
+            font-size: 24px;
+            font-weight: 400;
             text-decoration: none;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-            transition: all 0.3s ease;
+            color: #000000;
+            letter-spacing: -0.5px;
             text-align: center;
-        }
-        
-        .logo:hover {
-            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
-        }
-        
-        body.light-theme .logo {
-            color: #000000 !important;
-            text-shadow: 0 0 20px rgba(0, 0, 0, 0.3) !important;
-        }
-        
-        body.light-theme .logo:hover {
-            text-shadow: 0 0 30px rgba(0, 0, 0, 0.5) !important;
         }
         
         .logo-w {
@@ -101,250 +65,151 @@
             display: block;
         }
         
-        .instagram-icon {
-            position: absolute;
-            left: 20px;
-            width: 24px;
-            height: 24px;
-            border: 1px solid #ffffff;
-            border-radius: 4px;
+        .nav-links {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
+            gap: 40px;
+            list-style: none;
+        }
+        
+        .nav-links a {
             text-decoration: none;
-        }
-        
-        .instagram-icon:hover {
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            border-color: transparent;
-        }
-        
-        .instagram-icon svg {
-            width: 16px;
-            height: 16px;
-            fill: white;
-        }
-        
-        body.light-theme .instagram-icon {
-            border: 1px solid #000000 !important;
-        }
-        
-        body.light-theme .instagram-icon svg {
-            fill: #000000 !important;
-        }
-        
-        .hamburger {
-            position: absolute;
-            right: 20px;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .hamburger span {
-            width: 100%;
-            height: 2px;
-            background: #ffffff;
-            transition: all 0.3s ease;
-        }
-        
-        body.light-theme .hamburger span {
-            background: #000000 !important;
-        }
-        
-        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-        .hamburger.active span:nth-child(2) { opacity: 0; }
-        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
-        
-        .nav-menu { 
-            position: fixed; 
-            top: 80px; 
-            right: -100%; 
-            width: 300px; 
-            height: calc(100vh - 80px); 
-            background: rgba(255, 255, 255, 0.98); 
-            backdrop-filter: blur(20px);
-            border-left: 1px solid rgba(0, 0, 0, 0.1);
-            transition: right 0.3s ease;
-            z-index: 999;
-            overflow-y: auto;
-        }
-        
-        body.light-theme .nav-menu {
-            background: rgba(0, 0, 0, 0.98) !important;
-            border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
-        }
-        
-        .nav-menu.active { right: 0; }
-        
-        .nav-menu ul { 
-            list-style: none; 
-            padding: 40px 0; 
-        }
-        
-        .nav-menu li { 
-            margin: 0; 
-        }
-        
-        .nav-menu a { 
-            display: block; 
-            padding: 20px 30px; 
-            color: #000000; 
-            text-decoration: none; 
-            font-weight: 500;
+            color: #000000;
+            font-weight: 300;
             font-size: 16px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            border-left: 3px solid transparent;
-            transition: all 0.3s ease;
+            transition: opacity 0.3s ease;
         }
         
-        .nav-menu a:hover { 
-            background: rgba(0, 0, 0, 0.05); 
-            border-left-color: #000000;
+        .nav-links a:hover {
+            opacity: 0.6;
         }
         
-        body.light-theme .nav-menu a {
-            color: #ffffff !important;
+        .nav-links a.active {
+            font-weight: 400;
         }
         
-        body.light-theme .nav-menu a:hover {
-            background: rgba(255, 255, 255, 0.05) !important;
-            border-left-color: #ffffff !important;
-        }
-        
-        .nav-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 998;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* Hero Slideshow */
-        .slideshow { 
-            position: relative; 
-            width: 100%; 
-            height: 100vh; 
-            overflow: hidden; 
+        /* Main Content */
+        main {
             margin-top: 80px;
+            padding: 40px 0;
         }
         
-        .slides { 
-            display: flex; 
-            width: 600%; 
-            height: 100%; 
-            animation: slideShow 40s infinite; 
+        .gallery {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
         }
         
-        .slides img { 
-            width: 16.666%; 
-            height: 100%; 
-            object-fit: contain; 
-            background: #000000;
+        .image-item {
+            margin-bottom: 60px;
+            position: relative;
         }
         
-        @keyframes slideShow {
-            0% { transform: translateX(0); }
-            8% { transform: translateX(0); }
-            12% { transform: translateX(-16.666%); }
-            20% { transform: translateX(-16.666%); }
-            24% { transform: translateX(-33.333%); }
-            32% { transform: translateX(-33.333%); }
-            36% { transform: translateX(-50%); }
-            44% { transform: translateX(-50%); }
-            48% { transform: translateX(-66.666%); }
-            56% { transform: translateX(-66.666%); }
-            60% { transform: translateX(-83.333%); }
-            68% { transform: translateX(-83.333%); }
-            72% { transform: translateX(-100%); }
-            80% { transform: translateX(-100%); }
-            84% { transform: translateX(0); }
-            100% { transform: translateX(0); }
+        .image-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
         }
         
-        .slideshow-overlay {
-            position: absolute;
-            top: 0;
+        .image-item img:hover {
+            opacity: 0.9;
+        }
+        
+        .image-caption {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666666;
+            font-weight: 300;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
             left: 0;
+            top: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, rgba(0,0,0,0.3), rgba(0,0,0,0.1));
-            z-index: 1;
+            background-color: rgba(255, 255, 255, 0.95);
+            cursor: pointer;
         }
-
+        
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 90%;
+        }
+        
+        .modal-content img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: #000000;
+            font-size: 30px;
+            font-weight: 300;
+            cursor: pointer;
+            z-index: 2001;
+        }
+        
+        .modal-close:hover {
+            opacity: 0.6;
+        }
+        
         /* Footer */
         footer {
-            background: #000000;
-            color: #ffffff;
             text-align: center;
-            padding: 40px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .footer-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 40px;
-            margin-bottom: 20px;
-        }
-        
-        .footer-content a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 500;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-        }
-        
-        .footer-content a:hover {
-            opacity: 0.7;
-        }
-        
-        .footer-bottom {
+            padding: 60px 30px 40px;
+            color: #666666;
             font-size: 14px;
-            opacity: 0.7;
+            font-weight: 300;
         }
-
-        /* Responsive Design */
+        
+        /* Mobile */
         @media (max-width: 768px) {
-            .container {
-                padding: 0 15px;
+            header {
+                padding: 15px 20px;
             }
             
-            .nav-menu {
-                width: 100%;
-                right: -100%;
+            .logo {
+                font-size: 20px;
             }
             
-            .nav-menu.active {
-                right: 0;
-            }
-            
-            .slideshow {
-                margin-top: 80px;
-            }
-            
-            .footer-content {
-                flex-direction: column;
+            .nav-links {
                 gap: 20px;
+            }
+            
+            .nav-links a {
+                font-size: 14px;
+            }
+            
+            main {
+                margin-top: 70px;
+                padding: 20px 0;
+            }
+            
+            .gallery {
+                padding: 0 20px;
+            }
+            
+            .image-item {
+                margin-bottom: 40px;
+            }
+            
+            .modal-close {
+                top: 20px;
+                right: 20px;
+                font-size: 24px;
             }
         }
     </style>
@@ -352,113 +217,395 @@
 <body>
     <header>
         <nav>
-            <a href="index.html" class="instagram-icon">
-                <svg viewBox="0 0 24 24">
-                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/>
-                    <path d="m16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-                </svg>
-            </a>
-            
             <a href="index.html" class="logo">
                 <div class="logo-w">W</div>
                 <div class="logo-text">WILLIAM NEW YORK</div>
             </a>
-            
-            <div class="hamburger" onclick="hamburgerClick()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-        
-        <div class="nav-menu" id="navMenu">
-            <ul>
-                <li><a href="madonna.html">Madonna</a></li>
-                <li><a href="fashion.html">Fashion</a></li>
-                <li><a href="campaign.html">Campaign</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">portfolio</a></li>
+                <li><a href="contact.html">contact</a></li>
             </ul>
-        </div>
-        
-        <div class="nav-overlay" id="navOverlay" onclick="closeNav()"></div>
+        </nav>
     </header>
 
     <main>
-        <section class="slideshow">
-            <div class="slides">
-                <img src="images/slideshow_images/hero-1.jpeg" alt="Hero Image 1">
-                <img src="images/slideshow_images/hero-2.jpeg" alt="Hero Image 2">
-                <img src="images/slideshow_images/hero-3.jpeg" alt="Hero Image 3">
-                <img src="images/slideshow_images/hero-4.jpeg" alt="Hero Image 4">
-                <img src="images/slideshow_images/hero-5.jpeg" alt="Hero Image 5">
-                <img src="images/slideshow_images/hero-6.jpeg" alt="Hero Image 6">
+        <div class="gallery">
+            <!-- Madonna Images -->
+            <div class="image-item" onclick="openModal('images/mad_images/mad-1.jpeg')">
+                <img src="images/mad_images/mad-1.jpeg" alt="Madonna 1" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Madonna</div>
             </div>
-            <div class="slideshow-overlay"></div>
-        </section>
-    </main>
+            <div class="image-item" onclick="openModal('images/mad_images/mad-2.jpeg')">
+                <img src="images/mad_images/mad-2.jpeg" alt="Madonna 2" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Madonna</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/mad_images/mad-3.jpeg')">
+                <img src="images/mad_images/mad-3.jpeg" alt="Madonna 3" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Madonna</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/mad_images/mad-4.jpeg')">
+                <img src="images/mad_images/mad-4.jpeg" alt="Madonna 4" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Madonna</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/mad_images/mad-5.jpeg')">
+                <img src="images/mad_images/mad-5.jpeg" alt="Madonna 5" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Madonna</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/mad_images/mad-6.jpeg')">
+                <img src="images/mad_images/mad-6.jpeg" alt="Madonna 6" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Madonna</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/mad_images/mad-7.jpeg')">
+                <img src="images/mad_images/mad-7.jpeg" alt="Madonna 7" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Madonna</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/mad_images/mad-8.jpeg')">
+                <img src="images/mad_images/mad-8.jpeg" alt="Madonna 8" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Madonna</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/mad_images/mad-9.jpeg')">
+                <img src="images/mad_images/mad-9.jpeg" alt="Madonna 9" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Madonna</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/mad_images/mad-10.jpeg')">
+                <img src="images/mad_images/mad-10.jpeg" alt="Madonna 10" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Madonna</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/mad_images/mad-11.jpeg')">
+                <img src="images/mad_images/mad-11.jpeg" alt="Madonna 11" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Madonna</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/mad_images/mad-12.jpeg')">
+                <img src="images/mad_images/mad-12.jpeg" alt="Madonna 12" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Madonna</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/mad_images/mad-13.jpeg')">
+                <img src="images/mad_images/mad-13.jpeg" alt="Madonna 13" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Madonna</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/mad_images/mad-14.jpeg')">
+                <img src="images/mad_images/mad-14.jpeg" alt="Madonna 14" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Madonna</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/mad_images/mad-15.jpeg')">
+                <img src="images/mad_images/mad-15.jpeg" alt="Madonna 15" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Madonna</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/mad_images/mad-16.jpeg')">
+                <img src="images/mad_images/mad-16.jpeg" alt="Madonna 16" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Madonna</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/mad_images/mad-17.jpeg')">
+                <img src="images/mad_images/mad-17.jpeg" alt="Madonna 17" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Madonna</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/mad_images/mad-18.jpeg')">
+                <img src="images/mad_images/mad-18.jpeg" alt="Madonna 18" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Madonna</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/mad_images/mad-19.jpeg')">
+                <img src="images/mad_images/mad-19.jpeg" alt="Madonna 19" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Madonna</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/mad_images/mad-20.jpeg')">
+                <img src="images/mad_images/mad-20.jpeg" alt="Madonna 20" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Madonna</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/mad_images/mad-21.jpeg')">
+                <img src="images/mad_images/mad-21.jpeg" alt="Madonna 21" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Madonna</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/mad_images/mad-22.jpeg')">
+                <img src="images/mad_images/mad-22.jpeg" alt="Madonna 22" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Madonna</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/mad_images/mad-23.jpeg')">
+                <img src="images/mad_images/mad-23.jpeg" alt="Madonna 23" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Madonna</div>
+            </div>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <a href="https://instagram.com/williamnewyork" target="_blank">Instagram</a>
-                <a href="mailto:hello@williamnewyork.com">Email</a>
+            <!-- Campaign Images -->
+            <div class="image-item" onclick="openModal('images/camp_images/camp-1.jpeg')">
+                <img src="images/camp_images/camp-1.jpeg" alt="Campaign 1" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Campaign</div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; <span id="currentYear"></span> William Clark. All rights reserved.</p>
+            <div class="image-item" onclick="openModal('images/camp_images/camp-2.jpeg')">
+                <img src="images/camp_images/camp-2.jpeg" alt="Campaign 2" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Campaign</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/camp_images/camp-3.jpeg')">
+                <img src="images/camp_images/camp-3.jpeg" alt="Campaign 3" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Campaign</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/camp_images/camp-4.jpeg')">
+                <img src="images/camp_images/camp-4.jpeg" alt="Campaign 4" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Campaign</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/camp_images/camp-5.jpeg')">
+                <img src="images/camp_images/camp-5.jpeg" alt="Campaign 5" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Campaign</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/camp_images/camp-6.jpeg')">
+                <img src="images/camp_images/camp-6.jpeg" alt="Campaign 6" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Campaign</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/camp_images/camp-7.jpeg')">
+                <img src="images/camp_images/camp-7.jpeg" alt="Campaign 7" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Campaign</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/camp_images/camp-8.jpeg')">
+                <img src="images/camp_images/camp-8.jpeg" alt="Campaign 8" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Campaign</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/camp_images/camp-9.jpeg')">
+                <img src="images/camp_images/camp-9.jpeg" alt="Campaign 9" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Campaign</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/camp_images/camp-10.jpeg')">
+                <img src="images/camp_images/camp-10.jpeg" alt="Campaign 10" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Campaign</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/camp_images/camp-11.jpeg')">
+                <img src="images/camp_images/camp-11.jpeg" alt="Campaign 11" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Campaign</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/camp_images/camp-12.jpeg')">
+                <img src="images/camp_images/camp-12.jpeg" alt="Campaign 12" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Campaign</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/camp_images/camp-13.jpeg')">
+                <img src="images/camp_images/camp-13.jpeg" alt="Campaign 13" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Campaign</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/camp_images/camp-14.jpeg')">
+                <img src="images/camp_images/camp-14.jpeg" alt="Campaign 14" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Campaign</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/camp_images/camp-15.jpeg')">
+                <img src="images/camp_images/camp-15.jpeg" alt="Campaign 15" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Campaign</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/camp_images/camp-16.jpeg')">
+                <img src="images/camp_images/camp-16.jpeg" alt="Campaign 16" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Campaign</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/camp_images/camp-17.jpeg')">
+                <img src="images/camp_images/camp-17.jpeg" alt="Campaign 17" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Campaign</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/camp_images/camp-18.jpeg')">
+                <img src="images/camp_images/camp-18.jpeg" alt="Campaign 18" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Campaign</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/camp_images/camp-19.jpeg')">
+                <img src="images/camp_images/camp-19.jpeg" alt="Campaign 19" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Campaign</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/camp_images/camp-20.jpeg')">
+                <img src="images/camp_images/camp-20.jpeg" alt="Campaign 20" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Campaign</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/camp_images/camp-21.jpeg')">
+                <img src="images/camp_images/camp-21.jpeg" alt="Campaign 21" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Campaign</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/camp_images/camp-22.jpeg')">
+                <img src="images/camp_images/camp-22.jpeg" alt="Campaign 22" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Campaign</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/camp_images/camp-23.jpeg')">
+                <img src="images/camp_images/camp-23.jpeg" alt="Campaign 23" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Campaign</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/camp_images/camp-24.jpeg')">
+                <img src="images/camp_images/camp-24.jpeg" alt="Campaign 24" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Campaign</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/camp_images/camp-25.jpeg')">
+                <img src="images/camp_images/camp-25.jpeg" alt="Campaign 25" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Campaign</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/camp_images/camp-26.jpeg')">
+                <img src="images/camp_images/camp-26.jpeg" alt="Campaign 26" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Campaign</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/camp_images/camp-27.jpeg')">
+                <img src="images/camp_images/camp-27.jpeg" alt="Campaign 27" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Campaign</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/camp_images/camp-28.jpeg')">
+                <img src="images/camp_images/camp-28.jpeg" alt="Campaign 28" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Campaign</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/camp_images/camp-29.jpeg')">
+                <img src="images/camp_images/camp-29.jpeg" alt="Campaign 29" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Campaign</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/camp_images/camp-30.jpeg')">
+                <img src="images/camp_images/camp-30.jpeg" alt="Campaign 30" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Campaign</div>
+            </div>
+
+            <!-- Fashion Images -->
+            <div class="image-item" onclick="openModal('images/fashion_images/fashion-1.jpeg')">
+                <img src="images/fashion_images/fashion-1.jpeg" alt="Fashion 1" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Fashion</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/fashion_images/fashion-2.jpeg')">
+                <img src="images/fashion_images/fashion-2.jpeg" alt="Fashion 2" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Fashion</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/fashion_images/fashion-3.jpeg')">
+                <img src="images/fashion_images/fashion-3.jpeg" alt="Fashion 3" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Fashion</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/fashion_images/fashion-4.jpeg')">
+                <img src="images/fashion_images/fashion-4.jpeg" alt="Fashion 4" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Fashion</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/fashion_images/fashion-5.jpeg')">
+                <img src="images/fashion_images/fashion-5.jpeg" alt="Fashion 5" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Fashion</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/fashion_images/fashion-6.jpeg')">
+                <img src="images/fashion_images/fashion-6.jpeg" alt="Fashion 6" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Fashion</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/fashion_images/fashion-7.jpeg')">
+                <img src="images/fashion_images/fashion-7.jpeg" alt="Fashion 7" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Fashion</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/fashion_images/fashion-8.jpeg')">
+                <img src="images/fashion_images/fashion-8.jpeg" alt="Fashion 8" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Fashion</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/fashion_images/fashion-9.jpeg')">
+                <img src="images/fashion_images/fashion-9.jpeg" alt="Fashion 9" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Fashion</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/fashion_images/fashion-10.jpeg')">
+                <img src="images/fashion_images/fashion-10.jpeg" alt="Fashion 10" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Fashion</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/fashion_images/fashion-11.jpeg')">
+                <img src="images/fashion_images/fashion-11.jpeg" alt="Fashion 11" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Fashion</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/fashion_images/fashion-12.jpeg')">
+                <img src="images/fashion_images/fashion-12.jpeg" alt="Fashion 12" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Fashion</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/fashion_images/fashion-13.jpeg')">
+                <img src="images/fashion_images/fashion-13.jpeg" alt="Fashion 13" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Fashion</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/fashion_images/fashion-14.jpeg')">
+                <img src="images/fashion_images/fashion-14.jpeg" alt="Fashion 14" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Fashion</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/fashion_images/fashion-15.jpeg')">
+                <img src="images/fashion_images/fashion-15.jpeg" alt="Fashion 15" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Fashion</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/fashion_images/fashion-16.jpeg')">
+                <img src="images/fashion_images/fashion-16.jpeg" alt="Fashion 16" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Fashion</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/fashion_images/fashion-17.jpeg')">
+                <img src="images/fashion_images/fashion-17.jpeg" alt="Fashion 17" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Fashion</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/fashion_images/fashion-18.jpeg')">
+                <img src="images/fashion_images/fashion-18.jpeg" alt="Fashion 18" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Fashion</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/fashion_images/fashion-19.jpeg')">
+                <img src="images/fashion_images/fashion-19.jpeg" alt="Fashion 19" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Fashion</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/fashion_images/fashion-20.jpeg')">
+                <img src="images/fashion_images/fashion-20.jpeg" alt="Fashion 20" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Fashion</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/fashion_images/fashion-21.jpeg')">
+                <img src="images/fashion_images/fashion-21.jpeg" alt="Fashion 21" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Fashion</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/fashion_images/fashion-22.jpeg')">
+                <img src="images/fashion_images/fashion-22.jpeg" alt="Fashion 22" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Fashion</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/fashion_images/fashion-23.jpeg')">
+                <img src="images/fashion_images/fashion-23.jpeg" alt="Fashion 23" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Fashion</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/fashion_images/fashion-24.jpeg')">
+                <img src="images/fashion_images/fashion-24.jpeg" alt="Fashion 24" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Fashion</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/fashion_images/fashion-25.jpeg')">
+                <img src="images/fashion_images/fashion-25.jpeg" alt="Fashion 25" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Fashion</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/fashion_images/fashion-26.jpeg')">
+                <img src="images/fashion_images/fashion-26.jpeg" alt="Fashion 26" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Fashion</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/fashion_images/fashion-27.jpeg')">
+                <img src="images/fashion_images/fashion-27.jpeg" alt="Fashion 27" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Fashion</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/fashion_images/fashion-28.jpeg')">
+                <img src="images/fashion_images/fashion-28.jpeg" alt="Fashion 28" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Fashion</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/fashion_images/fashion-29.jpeg')">
+                <img src="images/fashion_images/fashion-29.jpeg" alt="Fashion 29" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Fashion</div>
+            </div>
+            <div class="image-item" onclick="openModal('images/fashion_images/fashion-30.jpeg')">
+                <img src="images/fashion_images/fashion-30.jpeg" alt="Fashion 30" onerror="this.parentElement.style.display='none'">
+                <div class="image-caption">Fashion</div>
             </div>
         </div>
+    </main>
+
+    <!-- Modal -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="">
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; <span id="currentYear"></span>. All images © William Clark</p>
     </footer>
 
     <script>
-        function toggleNav() {
-            const navMenu = document.getElementById('navMenu');
-            const navOverlay = document.getElementById('navOverlay');
-            const hamburger = document.querySelector('.hamburger');
-            const body = document.body;
-            
-            console.log('toggleNav called');
-            console.log('Before - Body classes:', body.className);
-            
-            // Toggle menu visibility
-            navMenu.classList.toggle('active');
-            navOverlay.classList.toggle('active');
-            hamburger.classList.toggle('active');
-            body.classList.toggle('light-theme');
-            
-            console.log('After - Menu active:', navMenu.classList.contains('active'));
-            console.log('After - Body classes:', body.className);
-            console.log('Has light-theme class:', body.classList.contains('light-theme'));
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = 'block';
+            modalImg.src = imageSrc;
+            document.body.style.overflow = 'hidden';
         }
         
-        function closeNav() {
-            const navMenu = document.getElementById('navMenu');
-            const navOverlay = document.getElementById('navOverlay');
-            const hamburger = document.querySelector('.hamburger');
-            const body = document.body;
-            
-            navMenu.classList.remove('active');
-            navOverlay.classList.remove('active');
-            hamburger.classList.remove('active');
-            body.classList.remove('light-theme');
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
         }
         
         // Update copyright year
         document.getElementById('currentYear').textContent = new Date().getFullYear();
         
-        // Close nav on escape key
+        // Close modal on escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
-                closeNav();
+                closeModal();
             }
         });
-        
-        // Simple hamburger click function
-        function hamburgerClick() {
-            console.log('Hamburger clicked');
-            toggleNav();
-        }
     </script>
 </body>
 </html>
