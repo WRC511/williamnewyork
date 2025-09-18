@@ -265,36 +265,42 @@
             font-weight: 300;
         }
         
-        /* Modal */
+        /* Modal (overlay fills screen and can scroll) */
         .modal {
             display: none;
             position: fixed;
+            inset: 0;
             z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.95);
             cursor: pointer;
+            /* enable scrolling if image taller than viewport */
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 24px;
         }
-        
+
+        /* Content wrapper */
         .modal-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            max-width: 90%;
-            max-height: 90%;
+            position: relative;
+            max-width: min(1200px, 95vw);
+            width: auto;
+            cursor: default;
         }
-        
+
+        /* Image: natural height, shrink only if too wide */
         .modal-content img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
+            display: block;
+            width: auto;
+            max-width: 100%;
+            height: auto;
         }
-        
+
+        /* Close button fixed at top-right */
         .modal-close {
-            position: absolute;
+            position: fixed;
             top: 30px;
             right: 40px;
             color: #000000;
@@ -303,10 +309,10 @@
             cursor: pointer;
             z-index: 2001;
         }
-        
         .modal-close:hover {
             opacity: 0.6;
         }
+
         
         /* Footer */
         footer {
@@ -671,11 +677,12 @@
 
     <!-- Modal -->
     <div id="imageModal" class="modal" onclick="closeModal()">
-        <span class="modal-close" onclick="closeModal()">&times;</span>
-        <div class="modal-content">
-            <img id="modalImage" src="" alt="">
-      </div>
+          <span class="modal-close" onclick="closeModal(); event.stopPropagation();">&times;</span>
+          <div class="modal-content" onclick="event.stopPropagation()">
+                <img id="modalImage" src="" alt="">
+          </div>
     </div>
+
 
     <footer>
         <p>&copy; <span id="currentYear"></span>. All images © William Clark</p>
