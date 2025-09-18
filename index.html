@@ -177,11 +177,20 @@
             color: #666666;
             font-weight: 300;
         }
-        /* --- Make anchor targets visible below the fixed header --- */
-        html { scroll-behavior: smooth; }          /* smooth scroll */
-        #videos { 
-           /* header ≈ 80px on desktop, ~70px on mobile */
-           scroll-margin-top: clamp(70px, 9vh, 100px);
+        /* Smooth jump + header offset for the #videos anchor */
+        html { scroll-behavior: smooth; }
+
+        /* Modern browsers */
+        #videos { scroll-margin-top: 110px; }  /* tweak to match your header height */
+
+        /* Fallback for old browsers that ignore scroll-margin-top */
+        #videos::before {
+           content: "";
+           display: block;
+           height: 110px;         /* same as scroll-margin-top */
+           margin-top: -110px;
+           pointer-events: none;
+           visibility: hidden;
         }
 
         /* Videos Section */
@@ -596,8 +605,8 @@
             </div>
         </div>
             <!-- Videos Section -->
-        <div id="videos" class="videos-section">
-            <h2 class="section-title">videos</h2>
+        <div class="videos-section">
+            <h2 id="videos" class="section-title">videos</h2>
                 
             <div class="video-grid">
                 <div class="video-item">
