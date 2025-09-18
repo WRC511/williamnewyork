@@ -720,6 +720,21 @@
             if (e.key === 'Escape') {
                 closeModal();
             }
+        
+        // If we arrived with #videos, correct the position after everything loads
+        (function () {
+            function adjustToVideos() {
+                var el = document.getElementById('videos');
+                if (!el) return;
+                var offset = 110; // match CSS offset above
+                var y = el.getBoundingClientRect().top + window.pageYOffset - offset;
+                window.scrollTo({ top: y, behavior: 'auto' });
+            }
+            if (location.hash === '#videos') {
+                // run after layout + on full load to avoid landing too low
+                requestAnimationFrame(function(){ setTimeout(adjustToVideos, 50); });
+                window.addEventListener('load', adjustToVideos);
+            }
         });
   </script>
 </body>
