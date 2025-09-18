@@ -177,7 +177,13 @@
             color: #666666;
             font-weight: 300;
         }
-        
+        /* --- Make anchor targets visible below the fixed header --- */
+        html { scroll-behavior: smooth; }          /* smooth scroll */
+        #videos { 
+           /* header ≈ 80px on desktop, ~70px on mobile */
+           scroll-margin-top: clamp(70px, 9vh, 100px);
+        }
+
         /* Videos Section */
         .videos-section {
             margin-top: 80px;
