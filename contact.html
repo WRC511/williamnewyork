@@ -87,10 +87,38 @@
             font-weight: 400;
         }
         
+        /* Vertical Billboard */
+        .vertical-billboard {
+            position: fixed;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 36px;
+            color: #000000;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        
+        .billboard-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            letter-spacing: 8px;
+            animation: billboardScroll 15s linear infinite;
+        }
+        
+        @keyframes billboardScroll {
+            0% { transform: translateY(100vh); }
+            100% { transform: translateY(-100%); }
+        }
+        
         /* Main Content */
         main {
             margin-top: 80px;
             padding: 60px 0;
+            margin-left: 80px;
         }
         
         .contact-container {
@@ -171,6 +199,10 @@
         
         /* Mobile */
         @media (max-width: 768px) {
+            .vertical-billboard {
+                display: none;
+            }
+            
             header {
                 padding: 15px 20px;
             }
@@ -190,6 +222,7 @@
             main {
                 margin-top: 70px;
                 padding: 40px 0;
+                margin-left: 0;
             }
             
             .contact-container {
@@ -219,6 +252,11 @@
             </ul>
         </nav>
     </header>
+
+    <!-- Vertical Billboard -->
+    <div class="vertical-billboard">
+        <div class="billboard-text">WILLIAM • NEW YORK • HAIR</div>
+    </div>
 
     <main>
         <div class="contact-container">
